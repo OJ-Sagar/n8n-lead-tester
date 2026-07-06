@@ -1,0 +1,97 @@
+import type { LeadFormValues, LeadTemplate, TemplateKey } from '../types/lead';
+
+export const emptyLeadForm: LeadFormValues = {
+  fn: '',
+  ln: '',
+  em: '',
+  ph: '',
+  co: '',
+  bu: '',
+  si: '',
+  sr: '',
+  ms: '',
+};
+
+export const templateButtons: Array<{ key: TemplateKey; label: string }> = [
+  { key: 'hot', label: 'Hot Lead' },
+  { key: 'warm', label: 'Warm Lead' },
+  { key: 'cold', label: 'Cold Lead' },
+  { key: 'inc', label: 'Incomplete' },
+  { key: 'rev', label: 'Needs Review' },
+  { key: 'dup', label: 'Duplicate' },
+];
+
+export const leadTemplates: Partial<Record<TemplateKey, LeadTemplate>> = {
+  hot: {
+    fn: 'Sarah',
+    ln: 'Mitchell',
+    em: 'sarah.mitchell@techcorp.io',
+    ph: '+928923401321',
+    co: 'TechCorp Industries',
+    bu: '2500',
+    si: 'Web Development',
+    ms: 'We need a complete website overhaul with a custom CMS and payment integration. Ready to start within two weeks.',
+    sr: 'Google Ads',
+    _t: 'Hot Lead',
+  },
+  warm: {
+    fn: 'David',
+    ln: 'Chen',
+    em: 'david.chen@startup.co',
+    ph: '+925557788222',
+    co: 'GrowthLab Startup',
+    bu: '1000',
+    si: 'UI/UX Design',
+    ms: 'Looking for a landing page redesign and brand refresh. Still evaluating a few agencies.',
+    sr: 'LinkedIn',
+    _t: 'Warm Lead',
+  },
+  cold: {
+    fn: 'Emma',
+    ln: 'Roberts',
+    em: 'emma.r@freemail.com',
+    ph: '+921230000111',
+    co: '',
+    bu: '350',
+    si: 'Consulting',
+    ms: 'Just exploring options, not sure what I need yet.',
+    sr: 'Organic Search',
+    _t: 'Cold Lead',
+  },
+  inc: {
+    fn: 'Alex',
+    ln: 'Johnson',
+    em: '',
+    ph: '',
+    co: 'SomeBusiness LLC',
+    bu: '800',
+    si: 'SEO & Marketing',
+    ms: 'Interested in SEO services for my website.',
+    sr: 'Referral',
+    _t: 'Incomplete Lead',
+  },
+  rev: {
+    fn: 'Michael',
+    ln: 'Brown',
+    em: 'm.brown@unknown.com',
+    ph: '+1 (555) 000-1111',
+    co: 'MB Enterprises',
+    bu: '2000',
+    si: 'help',
+    ms: 'Need assistance.',
+    sr: 'Direct',
+    _t: 'Needs Review',
+  },
+};
+
+export const duplicateTemplate = (email: string): LeadFormValues => ({
+  fn: 'Sarah',
+  ln: 'Mitchell',
+  em: email,
+  ph: '+1 (415) 892-9999',
+  co: 'TechCorp Industries (Updated)',
+  bu: '3200',
+  si: 'Custom Integration',
+  ms: 'Following up on our previous conversation. Budget increased and scope expanded to include API integrations.',
+  sr: 'Follow-up',
+});
